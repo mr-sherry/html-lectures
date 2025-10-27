@@ -1,0 +1,50 @@
+p {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  font-style: italic;
+}
+
+p + h1 {
+  color: red;
+}
+p ~ h1 {
+  color: green;
+}
+.mainDiv p {
+  color: blue;
+  font-size: 20px;
+}
+.mainDiv > p {
+  color: yellow;
+}
+
+/* p:hover {
+  background-color: beige;
+  font-size: 2px;
+} */
+
+.anchor:visited {
+  color: red;
+}
+
+button:active {
+  color: aqua;
+  /* border: ; */
+}
+button:hover {
+  color: yellow;
+}
+
+input {
+  border: 1px solid #ccc; /* Light gray border */
+  color: wheat;
+}
+input:focus {
+  border: 1px solid green;
+  background: red;
+  border-radius: 50px;
+}
+
+
+/* div:nth-child(4) */
