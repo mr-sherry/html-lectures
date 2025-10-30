@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+#child1 {
+  position: absolute;
+  border: 2px solid black;
+  width: 100px;
+  height: 100px;
+  right: 20px;
+  bottom: 0;
+}
+#child2 {
+  position: absolute;
+  border: 2px solid black;
+  width: 100px;
+  height: 100px;
+  left: 0px;
+  bottom: 0;
+}
+.maindiv {
+  background-color: red;
+  height: 100px;
+  width: 100%;
+  border: 2px solid black;
+  /* overflow: scroll; */
+  /* overflow-y: scroll; */
+
+  /* white-space: nowrap; */
+}
+
+img {
+  float: right;
+}
+
+#div3 {
+  font-size: 2rem;
+}
