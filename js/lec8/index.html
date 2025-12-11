@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+
+    
+    <script>
+      let array = [923, 345345, 56756, 42];
+      let array2 = ['sc', 'sdfsfd', 'qwewq'];
+      let array3 = ['sc', 'sdfsfd', 'qwewq', 34, 5465, 23432, 'ddss.', 'asdad'];
+
+      // let array4 = array.concat(array2);
+      // let array6 = array4.concat(array3);
+
+      console.log(array.concat(array2));
+      // spread op = {...}
+      let obj = [
+        { name: 'ahmed', rollNo: 2010, fName: 'ali', marks: [23] },
+        { name: 'ahmed', rollNo: 2010, fName: 'ali', marks: [34] },
+        { name: 'ahmed', rollNo: 2010, fName: 'ali', marks: [65] },
+      ];
+
+      let marks = obj[0].marks;
+
+      console.log(marks);
+
+      let spraededArray = [...array, ...array2, ...array3];
+
+      console.log(spraededArray);
+
+      localStorage.setItem('marks', JSON.stringify(obj));
+
+      console.log(JSON.parse(sessionStorage.getItem('marks')));
+    </script>
+  </body>
+</html>
