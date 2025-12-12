@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="mainDiv">
+      <p class="para">hello</p>
+      <p class="para">hello 2</p>
+      <p class="para" id="para3">hello 3</p>
+    </div>
+
+    <script>
+      //   getElementByid;
+      //   getElementByClassName;
+
+      //   querySelector;
+      //   querySelectorAll;
+
+      //   direct tag selector
+      //   id selector
+      //   class selector
+
+      let paragraph = document.querySelector('p');
+      let div = document.querySelector('#mainDiv');
+      let paragraph2 = document.querySelectorAll('p');
+
+      let paragraph3 = document.getElementById('para3');
+      let paragraphClass = document.getElementsByClassName('para');
+
+      paragraph.textContent = '<h1>from js</h1>';
+      div.innerHTML = '<h1>from js</h1>';
+
+      console.log(div.innerHTML);
+
+      console.log(paragraph);
+      console.log(paragraph2);
+      console.log(paragraph3);
+      console.log(paragraphClass);
+    </script>
+  </body>
+</html>
