@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>dskjd</button>
+
+    <input type="text" name="" id="" />
+
+    <!-- onClick onChange window.addEventListener('Click,function) -->
+
+    <script>
+      let btn = document.querySelector('button');
+      let input = document.querySelector('input');
+      console.log(input);
+      input.value = 'new';
+      function handleClick() {
+        console.log(btn);
+      }
+      function handleChange() {
+        console.log('hello');
+      }
+
+        btn.onclick = handleClick;
+        input.onchange = () => {
+          console.log(input.value);
+        };
+
+        input.oninput = () => {
+          console.log(input.value);
+        };
+
+      btn.addEventListener('click', handleClick);
+      input.addEventListener('input', handleChange);
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key == 'Backspace') {
+          input.value = input.value.slice(0, -1);
+          return;
+        }
+        input.value = input.value + e.key;
+      });
+
+
+      btn.addEventListener('mouseover', () => {
+        console.log('ksaldjljkads');
+      });
+      btn.addEventListener('mouseout', () => {
+        console.log('kk');
+      });
+      btn.addEventListener('mousemove', () => {
+        console.log('kbnnnnk');
+      });
+    </script>
+  </body>
+</html>
