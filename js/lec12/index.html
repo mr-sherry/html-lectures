@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" method="post">
+      <label for="">username</label>
+      <input type="text" name="username" id="name" />
+      <label for="">password</label>
+      <input type="password" name="password" id="passowrd" />
+      <button type="submit">Submit</button>
+    </form>
+    <h1 id="nameOfUser"></h1>
+    <ul id="ulList"></ul>
+
+    <script>
+      let form = document.querySelector('form');
+      let box = document.querySelector('.box');
+      let userh1 = document.querySelector('#nameOfUser');
+      let ulList = document.getElementById('ulList');
+
+      let listItem = document.createElement('li');
+      listItem.textContent = 'hello@gmail.com';
+      ulList.appendChild(listItem);
+
+      //   form.addEventListener('submit', async (e) => {
+      //     e.preventDefault();
+      //     let data = new FormData(form);
+
+      //     try {
+      //       let resp = await fetch('https://dummyjson.com/auth/login', {
+      //         method: 'post',
+      //         headers: { 'Content-Type': 'application/json' },
+      //         body: JSON.stringify({
+      //           username: 'emilys',
+      //           password: 'emilyspass',
+      //         }),
+      //       });
+      //       console.log(resp);
+      //       if (resp.ok) {
+      //         let returnData = await resp.json();
+      //         console.log(returnData);
+      //         userh1.textContent = `${returnData.firstName} ${returnData.lastName}`;
+      //       }
+      //     } catch (error) {
+      //       console.log(error);
+      //     }
+      //   });
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        let data = new FormData(form);
+
+        try {
+          let resp = await fetch('https://dummyjson.com/users');
+          console.log(resp);
+          let returnData = await resp.json();
+          for (let index = 0; index < returnData.users.length; index++) {
+            let listItem = document.createElement('li');
+            listItem.textContent = returnData.users[index].email;
+            ulList.appendChild(listItem);
+          }
+          //   userh1.textContent = `${returnData.firstName} ${returnData.lastName}`;
+        } catch (error) {
+          console.log(error);
+        }
+      });
+    </script>
+  </body>
+</html>
