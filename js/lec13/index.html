@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="mainDiv">
+      <img
+        src="https://img.freepik.com/free-photo/courage-man-jump-through-gap-hill-business-concept-idea_1323-262.jpg?semt=ais_hybrid&w=740&q=80"
+        alt=""
+        id="imgeee"
+      />
+
+      <input class="hello hwelele" type="text" name="" id="inpt" hidden />
+      <input type="checkbox" />
+      <option value="math">
+        <select name="math" id="">
+          math
+        </select>
+        <select name="urdu" id="">
+          urdu
+        </select>
+        <select name="eng" id="">
+          eng
+        </select>
+        <select name="isl" id="">
+          isl
+        </select>
+      </option>
+
+      <select name="opt" id="">
+        <option value="">hehehe</option>
+      </select>
+      <button class="btn border">dark</button>
+    </div>
+
+    <script>
+      let div = document.getElementById('mainDiv');
+      let image = document.createElement('img');
+      let input = document.getElementById('inpt');
+      let imgeee = document.getElementById('imgeee');
+      let btn = document.querySelector('button');
+      image.setAttribute(
+        'src',
+        'https://img.freepik.com/free-photo/courage-man-jump-through-gap-hill-business-concept-idea_1323-262.jpg?semt=ais_hybrid&w=740&q=80'
+      );
+      image.setAttribute('width', '200px');
+      input.removeAttribute('hidden');
+      image.removeAttribute('src');
+
+      input.value;
+      input.checked;
+      input.selected;
+
+      let imgAtt = imgeee.getAttribute('src');
+      console.log(imgAtt);
+
+      div.appendChild(image);
+
+      let inputValue = '   dakjsds   ';
+
+      console.log(input.className);
+
+      input.classList.add('new');
+
+      btn.addEventListener('click', () => {
+        if (btn.className.includes('btn-dark')) {
+          btn.classList.remove('btn-dark');
+        } else {
+          btn.classList.add('btn-dark');
+        }
+      });
+
+      //   div.innerText = 'hellooooooo';
+
+      //   div.outerHTML = '<h1>jajaja</h1>';
+    </script>
+  </body>
+</html>
