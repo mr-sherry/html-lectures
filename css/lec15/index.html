@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .divBox {
+        width: 200px;
+        height: 200px;
+        position: fixed;
+
+        border: 2px solid black;
+        animation: forwards;
+        animation-name: movingDiv;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-direction: forward;
+      }
+
+      .textcolor {
+        color: red;
+        transition: color 2s;
+      }
+
+      .textcolor:hover {
+        color: blue;
+      }
+
+      @keyframes movingDiv {
+        0% {
+          background-color: blue;
+          top: 0;
+          left: 0;
+        }
+        25% {
+          background-color: red;
+          top: 400px;
+          left: 300px;
+        }
+        100% {
+          background-color: black;
+          top: 0;
+          left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    hello
+
+    <div class="divBox"></div>
+
+    <h1 class="textcolor">hello</h1>
+  </body>
+</html>
