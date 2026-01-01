@@ -1,58 +1,37 @@
-import { useState } from 'react';
+import { useOptimistic, useState } from 'react';
 
 function App() {
-  const [data, setData] = useState(['sadkldksa', 'safasda', 'asdasdas']);
+  const [inputValue, setInputValue] = useState(localStorage.getItem('name'));
+  const [disable, setDisable] = useState(localStorage.getItem('update'));
 
-  function handleSave() {
-    let std = {
-      data: [
-        {
-          id: 1,
-          name: 'Ali Khan',
-          age: 20,
-          grade: 'A',
-          major: 'Computer Science',
-          email: 'ali.khan@example.com',
-        },
-        {
-          id: 2,
-          name: 'Sara Ahmed',
-          age: 22,
-          grade: 'B+',
-          major: 'Information Technology',
-          email: 'sara.ahmed@example.com',
-        },
-        {
-          id: 3,
-          name: 'Hassan Raza',
-          age: 21,
-          grade: 'A-',
-          major: 'Software Engineering',
-          email: 'hassan.raza@example.com',
-        },
-      ],
-    };
-    setData(std);
+  // let update = ;
+  // setDisable(update);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setDisable(true);
+    localStorage.setItem('name', inputValue);
+    localStorage.setItem('update', true);
   }
-
   return (
     <>
       <div>main</div>
-      <ul>
-        {data.data
-          ? data.data.map((item, index) => (
-              <div key={index}>
-                <h1>{item.name}</h1>
-                <p>{item.major}</p>
-              </div>
-            ))
-          : data.map((item, index) => <li key={index}>{item}</li>)}
 
-        {/* 
-        {data.map(() => (<div>{}</div>))}
-        {data? (data.map(() => ()) data.map(() => ())data.map(() => ())data.map(() => ())data.map(() => ())) : (data.map(() => ()))} */}
-      </ul>
-      <button onClick={handleSave}>Add Data</button>
+      <h1>Name:{inputValue}</h1>
+      <form action=''>
+        <label htmlFor=''>name</label> <br />
+        <input
+          type='text'
+          name=''
+          id=''
+          value={inputValue}
+          onChange={(e) => setInputValue(e.currentTarget.value)}
+          disabled={disable ? true : false}
+        />
+        <button type='submit' onClick={handleSubmit}>
+          Submit
+        </button>
+      </form>
     </>
   );
 }
