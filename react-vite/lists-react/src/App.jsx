@@ -1,38 +1,63 @@
-import { useOptimistic, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
-  const [inputValue, setInputValue] = useState(localStorage.getItem('name'));
-  const [disable, setDisable] = useState(localStorage.getItem('update'));
+  const [update, setUpdate] = useState(true);
+  const [posts, setPosts] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // let update = ;
-  // setDisable(update);
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    setDisable(true);
-    localStorage.setItem('name', inputValue);
-    localStorage.setItem('update', true);
+  async function FetchData() {
+    try {
+      let resp = await fetch('https://jsonplaceholder.typicode.com/posts');
+      let data = await resp.json();
+      if (resp.ok) {
+        setPosts(data);
+        console.log(data);
+      } else {
+        setError('Data fetching failed Please Refresh Page...');
+      }
+    } catch (error) {
+      console.log(error.message);
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
   }
-  return (
-    <>
-      <div>main</div>
 
-      <h1>Name:{inputValue}</h1>
-      <form action=''>
-        <label htmlFor=''>name</label> <br />
-        <input
-          type='text'
-          name=''
-          id=''
-          value={inputValue}
-          onChange={(e) => setInputValue(e.currentTarget.value)}
-          disabled={disable ? true : false}
-        />
-        <button type='submit' onClick={handleSubmit}>
-          Submit
-        </button>
-      </form>
-    </>
+  useEffect(() => {
+    
+    FetchData();
+  }, [update]);
+
+  return (
+    <div>
+      <h1>hello</h1>
+      <button onClick={() => setUpdate(!update)}>Fetch Again</button>
+      <div>
+        <h1>Posts</h1>
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+          {loading ? (
+            <h1>Loading posts.....</h1>
+          ) : error ? (
+            <h1>{error}</h1>
+          ) : (
+            posts.map((post, index) => (
+              <div
+                key={index}
+                style={{
+                  border: '2px solid black',
+                  padding: '20px',
+                  width: '250px',
+                }}
+              >
+                <h2>{post.title}</h2>
+                <p>{post.body}</p>
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+    </div>
   );
 }
 
