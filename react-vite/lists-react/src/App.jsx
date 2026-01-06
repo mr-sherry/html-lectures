@@ -1,62 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import Card from './components/Card';
+// import StateUp from './components/StateUp';
 
 function App() {
-  const [update, setUpdate] = useState(true);
-  const [posts, setPosts] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  async function FetchData() {
-    try {
-      let resp = await fetch('https://jsonplaceholder.typicode.com/posts');
-      let data = await resp.json();
-      if (resp.ok) {
-        setPosts(data);
-        console.log(data);
-      } else {
-        setError('Data fetching failed Please Refresh Page...');
-      }
-    } catch (error) {
-      console.log(error.message);
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    
-    FetchData();
-  }, [update]);
-
+  // const [nameFromChild, setNameFromChild] = useState('gotName');
   return (
     <div>
-      <h1>hello</h1>
-      <button onClick={() => setUpdate(!update)}>Fetch Again</button>
-      <div>
-        <h1>Posts</h1>
-        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {loading ? (
-            <h1>Loading posts.....</h1>
-          ) : error ? (
-            <h1>{error}</h1>
-          ) : (
-            posts.map((post, index) => (
-              <div
-                key={index}
-                style={{
-                  border: '2px solid black',
-                  padding: '20px',
-                  width: '250px',
-                }}
-              >
-                <h2>{post.title}</h2>
-                <p>{post.body}</p>
-              </div>
-            ))
-          )}
-        </div>
-      </div>
+      {/* <StateUp text={'hello'} sendName={setNameFromChild} />
+      <h1>name from child: {nameFromChild}</h1> */}
+
+      <div>home</div>
+      <Card>
+        {/* <img
+          src='https://img.freepik.com/free-photo/closeup-scarlet-macaw-from-side-view-scarlet-macaw-closeup-head_488145-3540.jpg?semt=ais_hybrid&w=740&q=80'
+          alt=''
+          width={200}
+          height={200}
+        /> */}
+      </Card>
     </div>
   );
 }
