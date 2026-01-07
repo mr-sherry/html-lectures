@@ -1,16 +1,16 @@
 import React from 'react';
 
-function home() {
-    
+function Home() {
   return (
     <>
+      {/* <Header />
       <Header />
       <Header />
       <Header />
-      <Header />
-      <Footer />
+      <Footer /> */}
+      <h1>Home</h1>
     </>
   );
 }
 
-export default home;
+export default Home;
