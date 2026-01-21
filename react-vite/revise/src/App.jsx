@@ -4,8 +4,20 @@ import './App.css';
 import Profile from './pages/Profile';
 import Users from './pages/Users';
 import Pro from './pages/Pro';
+import Header from './components/Header';
+import ContextProvider from './context/ContextProvider';
+import ThemeContext from './context/ThemeContext';
 
 function App() {
+  const [theme, setTheme] = useState('dark');
+
+  function switchTheme() {
+    if (theme == 'dark') {
+      setTheme('light');
+    } else {
+      setTheme('dark');
+    }
+  }
   // let [btn, setBtn] = useState(0);
   // const [users, setUsers] = useState(null);
   // async function fetchData() {
@@ -33,20 +45,23 @@ function App() {
     // <div>
     //   <button onClick={() => setBtn(btn + 1)}>fetch</button>
     // </div>
-    <BrowserRouter>
-      <Routes>
-        <Route path='/users' element={<Users />} />
+    <ThemeContext.Provider value={{ theme, switchTheme }}>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path='/users' element={<Users />} />
 
-        {/* <Route path='/profile' element={<Pro />} /> */}
+          <Route path='/profile' element={<Pro />} />
 
-        <Route path='/profile' element={<Pro />}>
+          {/* <Route path='/profile' element={<Pro />}>
           <Route path=':username' element={<Profile />} />
           <Route path=':username' element={<Profile />} />
           <Route path=':username' element={<Profile />} />
           <Route path=':username' element={<Profile />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+        </Route> */}
+        </Routes>
+      </BrowserRouter>
+    </ThemeContext.Provider>
   );
 }
 

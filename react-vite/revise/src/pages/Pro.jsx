@@ -4,10 +4,10 @@ import { Outlet } from 'react-router-dom';
 function Pro() {
   return (
     <div>
-          Pro
+          {/* Pro
           header
           <Outlet />
-          footer
+          footer */}
     </div>
   );
 }
