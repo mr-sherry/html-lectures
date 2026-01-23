@@ -1,14 +1,16 @@
-import { useEffect, useState } from 'react';
-import Users from './components/Users';
-import useLocalStorage from './hooks/useLocalStorage';
+// import { useEffect, useState } from 'react';
+// import Users from './components/Users';
+// import useLocalStorage from './hooks/useLocalStorage';
+
+import Ref from './components/Ref';
 
 function App() {
-  const [input, setInput] = useState();
-  const [localItem, submit] = useLocalStorage(input);
+  // const [input, setInput] = useState();
+  // const [localItem, submit] = useLocalStorage(input);
 
   return (
     <div>
-      <input
+      {/* <input
         type='text'
         name=''
         id=''
@@ -17,7 +19,8 @@ function App() {
       />
       <button onClick={submit}>save</button>
       <Users />
-      <h1>input value from local:{localItem}</h1>
+      <h1>input value from local:{localItem}</h1> */}
+      <Ref />
     </div>
   );
 }
