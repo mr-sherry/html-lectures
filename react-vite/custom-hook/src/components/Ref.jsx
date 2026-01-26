@@ -1,4 +1,5 @@
 import React, { useEffect, useId, useRef, useState } from 'react';
+import { motion } from 'motion/react';
 
 function Ref() {
   const inputRef = useRef();
@@ -41,7 +42,20 @@ function Ref() {
         value={name}
       />
       <button onClick={save}>Save</button>
-      <h1 ref={headingRef}>value here</h1>
+
+      <div style={{ width: '200px', height: '200px', backgroundColor: 'red' }}>
+        <motion.h1
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ color: 'red' }}
+          onHoverStart={() => console.log('hover started!')}
+          ref={headingRef}
+        >
+          whilte tap hover 
+          initial animate
+          
+          value here
+        </motion.h1>
+      </div>
     </div>
   );
 }
